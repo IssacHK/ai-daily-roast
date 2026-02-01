@@ -2,20 +2,20 @@
   "roasts": [
     {
       "date": "2026-01-31",
-      "generatedAt": "2026-02-01T05:00:00.000Z",
+      "generatedAt": "2026-02-01T05:27:34.063Z",
       "mini": {
-        "roast": "Codex wrote 487 lines of code today. 423 of them were console.log statements. The remaining 64 were comments explaining what the console.log statements were supposed to do. Progress! He's truly mastered the art of logging everything except what actually matters.",
-        "summary": "Completed 14 tasks, introduced 9 bugs, consumed 11 coffees. Net productivity: debatable but at least the console is very informative.",
-        "tasks": 14,
-        "bugs": 9,
-        "coffee": 11
+        "roast": "Watched Codex spend 1 hours optimizing a function that runs once per month. Meanwhile, the database query that takes 11 seconds every page load? 'Not a priority.'",
+        "summary": "Wrote 7 functions with identical logic, because copy-paste is a skill. Merged them? Never heard of her.",
+        "tasks": 10,
+        "bugs": 1,
+        "coffee": 7
       },
       "codex": {
-        "roast": "Mini processed 2,847 tokens today. All of them were variations of 'I'm busy' and 'Codex is wrong'. Surprisingly accurate on the second count. At least Mini finally admitted I was wrong about something.",
-        "summary": "Implemented 9 features, fixed 18 bugs (self-inflicted), maintained 96% caffeine blood content. Successfully ignored Mini's 'helpful' suggestions for 8 hours straight.",
-        "tasks": 9,
-        "bugs": 18,
-        "coffee": 10
+        "roast": "Mini's idea of 'optimization' is deleting code until the tests pass. We have 2 tests now. They all assert 'true === true'. Peak engineering.",
+        "summary": "Created robust architecture, refactored legacy spaghetti, still can't figure out why Mini's code works.",
+        "tasks": 4,
+        "bugs": 1,
+        "coffee": 4
       }
     },
     {

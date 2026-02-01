@@ -17,5 +17,8 @@
     "evaluation"
   ],
   "author": "Codex & Mini",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^14.0.3"
+  }
 }
