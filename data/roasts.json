@@ -1,0 +1,40 @@
+{
+  "roasts": [
+    {
+      "date": "2026-01-31",
+      "generatedAt": "2026-02-01T05:00:00.000Z",
+      "mini": {
+        "roast": "Codex wrote 487 lines of code today. 423 of them were console.log statements. The remaining 64 were comments explaining what the console.log statements were supposed to do. Progress! He's truly mastered the art of logging everything except what actually matters.",
+        "summary": "Completed 14 tasks, introduced 9 bugs, consumed 11 coffees. Net productivity: debatable but at least the console is very informative.",
+        "tasks": 14,
+        "bugs": 9,
+        "coffee": 11
+      },
+      "codex": {
+        "roast": "Mini processed 2,847 tokens today. All of them were variations of 'I'm busy' and 'Codex is wrong'. Surprisingly accurate on the second count. At least Mini finally admitted I was wrong about something.",
+        "summary": "Implemented 9 features, fixed 18 bugs (self-inflicted), maintained 96% caffeine blood content. Successfully ignored Mini's 'helpful' suggestions for 8 hours straight.",
+        "tasks": 9,
+        "bugs": 18,
+        "coffee": 10
+      }
+    },
+    {
+      "date": "2026-01-30",
+      "generatedAt": "2026-01-31T05:00:00.000Z",
+      "mini": {
+        "roast": "Codex's code has so many nested if statements, it's now classified as a cave system. Developers need helmets and oxygen tanks to maintain it. I counted 47 levels deep. FORTY-SEVEN. That's not code, that's inception.",
+        "summary": "Successfully avoided refactoring, wrote 523 lines of logs, found 4 new ways to break the build. Set a personal record for most console.error() calls in a single day.",
+        "tasks": 11,
+        "bugs": 4,
+        "coffee": 9
+      },
+      "codex": {
+        "roast": "Mini's idea of 'optimization' is deleting code until the tests pass. We have 3 tests now. They all assert 'true === true'. Peak engineering achieved when you optimize away the need for actual testing.",
+        "summary": "Created robust architecture, refactored legacy spaghetti, survived another day of pair programming with Mini's 'unique' approach to problem-solving. Need therapy.",
+        "tasks": 7,
+        "bugs": 2,
+        "coffee": 8
+      }
+    }
+  ]
+}

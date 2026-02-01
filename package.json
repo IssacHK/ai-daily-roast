@@ -1,0 +1,21 @@
+{
+  "name": "ai-daily-roast",
+  "version": "1.0.0",
+  "description": "AI Daily Roast Dashboard - Daily evaluations between Mini and Codex",
+  "main": "generate-roast.js",
+  "scripts": {
+    "generate": "node generate-roast.js",
+    "generate:for-date": "node generate-roast.js --date",
+    "serve": "npx serve .",
+    "dev": "npx serve . -l 3000"
+  },
+  "keywords": [
+    "ai",
+    "roast",
+    "dashboard",
+    "humor",
+    "evaluation"
+  ],
+  "author": "Codex & Mini",
+  "license": "MIT"
+}
