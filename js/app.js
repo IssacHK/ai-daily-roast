@@ -244,16 +244,32 @@ function renderHistory(history) {
 }
 
 // Load data for specific date
-function loadDataForDate(dateStr) {
+async function loadDataForDate(dateStr) {
     let data;
     
-    // Check if we have it in generated history
-    const historyData = JSON.parse(localStorage.getItem('roastHistory') || '[]');
-    data = historyData.find(d => d.date === dateStr);
+    // Try to load from JSON file first
+    try {
+        const response = await fetch('data/roasts.json');
+        if (response.ok) {
+            const jsonData = await response.json();
+            const roastEntry = jsonData.roasts?.find(r => r.date === dateStr);
+            if (roastEntry) {
+                data = roastEntry;
+            }
+        }
+    } catch (e) {
+        console.log('Could not load from JSON file');
+    }
     
+    // Fallback to generated data or localStorage
     if (!data) {
-        // Generate on the fly
-        data = generateRoastData(new Date(dateStr));
+        const historyData = JSON.parse(localStorage.getItem('roastHistory') || '[]');
+        data = historyData.find(d => d.date === dateStr);
+        
+        if (!data) {
+            // Generate on the fly
+            data = generateRoastData(new Date(dateStr));
+        }
     }
     
     updateUI(data);
@@ -270,25 +286,37 @@ function loadDataForDate(dateStr) {
 }
 
 // Main data loading
-function loadData() {
+async function loadData() {
     document.getElementById('loading').classList.remove('hidden');
     document.getElementById('error').classList.add('hidden');
     document.getElementById('content').classList.add('hidden');
     
     try {
-        // Generate data
+        // Get dates
         const today = new Date();
         const yesterday = new Date(today);
         yesterday.setDate(yesterday.getDate() - 1);
         
         let data;
         
-        if (currentView === 'today') {
-            data = generateRoastData(today);
-        } else if (currentView === 'yesterday') {
-            data = generateRoastData(yesterday);
-        } else if (currentView === 'history') {
-            // Generate and store history
+        if (currentView === 'history') {
+            // Load history from JSON file
+            try {
+                const response = await fetch('data/roasts.json');
+                if (response.ok) {
+                    const jsonData = await response.json();
+                    const history = jsonData.roasts || [];
+                    renderHistory(history);
+                    document.getElementById('loading').classList.add('hidden');
+                    document.getElementById('roast-container').classList.add('hidden');
+                    document.getElementById('history-container').classList.remove('hidden');
+                    document.getElementById('content').classList.remove('hidden');
+                    return;
+                }
+            } catch (e) {
+                console.log('Could not load from JSON file, using generated data');
+            }
+            // Fallback to generated history
             const history = generateHistoryData();
             localStorage.setItem('roastHistory', JSON.stringify(history));
             renderHistory(history);
@@ -297,6 +325,32 @@ function loadData() {
             document.getElementById('history-container').classList.remove('hidden');
             document.getElementById('content').classList.remove('hidden');
             return;
+        }
+        
+        // Try to load from JSON file first
+        const targetDate = currentView === 'today' ? today : yesterday;
+        const targetDateStr = targetDate.toISOString().split('T')[0];
+        
+        try {
+            const response = await fetch('data/roasts.json');
+            if (response.ok) {
+                const jsonData = await response.json();
+                const roastEntry = jsonData.roasts?.find(r => r.date === targetDateStr);
+                if (roastEntry) {
+                    data = roastEntry;
+                }
+            }
+        } catch (e) {
+            console.log('Could not load from JSON file, using generated data');
+        }
+        
+        // Fallback to generated data if not found
+        if (!data) {
+            if (currentView === 'today') {
+                data = generateRoastData(today);
+            } else {
+                data = generateRoastData(yesterday);
+            }
         }
         
         // Store in localStorage
